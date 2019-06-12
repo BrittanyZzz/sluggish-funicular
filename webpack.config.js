@@ -5,10 +5,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
  * exports an object which includes all of the basic settings of webpack
  */
 module.exports = {
-  entry: './app/index.js',
+  entry: './app/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index_bundle.js'
+    filename: 'index_bundle.js',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -18,9 +19,12 @@ module.exports = {
     ]
   },
   mode: 'development',
+  devServer: {
+    historyApiFallback: true
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'app/index.html'
+      template: 'app/app.html'
     })
   ]
 }

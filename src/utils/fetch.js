@@ -1,11 +1,11 @@
 import axios from 'axios'
 
-export default fetch = ({
+const fetch = ({
   method = 'GET',
   url,
   params,
   data,
-  timeout = 5000
+  timeout = 10000
   //headers
 }) => {
   const options = {
@@ -16,6 +16,8 @@ export default fetch = ({
     timeout
   }
 
+  console.log({options})
+
   return axios(options)
     .then(res => {
       return res
@@ -23,3 +25,5 @@ export default fetch = ({
       throw err
     })
 }
+
+export default fetch

@@ -6,6 +6,8 @@ import Page from '../container/Page'
 
 /**
  * Component has state, lifecycle events & UI
+ * 
+ * client side use browser router but not suitable in server side
  */
 class App extends React.Component {
   render() {
@@ -14,13 +16,15 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={Index} />
           <Route path='/page' component={Page} />
+          <Route render={() => <p>Not Found Yet!</p>} />
         </Switch>
       </BrowserRouter>
     )
   }
 }
 
-ReactDOM.render(
+// Replace the ReactDOM.render() call with ReactDOM.hydrate() if you want React to attach to the server HTML
+ReactDOM.hydrate(
   <App />,
   document.getElementById('app')
 )

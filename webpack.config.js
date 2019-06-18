@@ -5,10 +5,10 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
  * exports an object which includes all of the basic settings of webpack
  */
 module.exports = {
-  entry: './app/app.js',
+  entry: './src/client/app/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index_bundle.js',
+    filename: 'bundle.js',
     publicPath: '/'
   },
   module: {
@@ -20,11 +20,14 @@ module.exports = {
   },
   mode: 'development',
   devServer: {
+    port: 9000,
+    host: 'localhost',
+    compress: true,  //服务器返回浏览器的时候是否启动gzip压缩
     historyApiFallback: true
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'app/app.html'
+      template: 'src/client/app/index.html'
     })
   ]
 }

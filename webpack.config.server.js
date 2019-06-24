@@ -27,7 +27,7 @@ var serverConfig = {
   target: 'node',
   externals: [nodeExternals()],  //do not bundle the node modules
   output: {
-    path: __dirname,
+    path: path.resolve(__dirname, 'dist'),
     filename: 'server.js',
     publicPath: '/'
   },

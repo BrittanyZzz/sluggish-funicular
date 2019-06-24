@@ -1,8 +1,8 @@
 import fetch from '../utils/fetch'
 
-const fetchFakeData = () => new Promise((resolve, reject) => {
+const fetchFakeData = (type = '') => new Promise((resolve, reject) => {
   fetch({
-    url: 'https://jsonplaceholder.typicode.com/todos/1'
+    url: `https://jsonplaceholder.typicode.com/todos/${type}`
   }).then(res => {
     return resolve(res)
   }).catch(err => {

@@ -3,6 +3,7 @@ import cors from 'cors'
 import { renderToString } from 'react-dom/server'
 import Index from '../client/container/Index'
 import React from 'react'
+import { matchPath } from 'react-router-dom'
 
 const app = express()
 

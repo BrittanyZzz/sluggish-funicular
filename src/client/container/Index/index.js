@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from 'react'
-import { fetchFakeData } from '../../../service/api'
+import React, { Component } from 'react'
+import TestComponent from '../../components/TestComponent'
 
-const Index = props => {
-  useEffect(() => {
-    fetchFakeData()
-    .then(res => {
-      console.log({res})
-    }).catch(err => {
-      console.log({err})
-    })
-  }, [])
+export default class Index extends Component {
+  constructor(props) {
+    super(props)
+  }
+  
+  componentWillMount() {
+    console.log('index will mount 1')
+  }
 
-  return (
-    <div>Index here!</div>
-  )
+  componentDidMount() {
+    console.log('index did mount 2')
+  }
+
+  render() {
+    return (
+      <TestComponent />
+    )
+  }
 }
-
-export default Index
